@@ -1,0 +1,32 @@
+<div class="space-y-8">
+  <div>
+    <label class="font-medium text-gray-700"> Form Field </label>
+
+    <select
+      class="w-full p-3 mt-1 border-gray-300 rounded-md"
+      [(ngModel)]="selectedFormField"
+      (ngModelChange)="setInputHtmlCode(); updateHtmlCode()"
+    >
+      <option value="" disabled>Please Select</option>
+      <option *ngFor="let formField of formFields">{{ formField }}</option>
+    </select>
+  </div>
+
+  <div [innerHTML]="selectedHtmlToRender"></div>
+
+  <div *ngIf="inputHtmlCode">
+    <pre class="flex px-4 py-2 overflow-x-auto text-sm bg-gray-800 rounded-md">
+      <code class="text-gray-300 whitespace-pre-wrap">{{ inputHtmlCode }}</code>
+    </pre>
+
+    <div class="mt-4">
+      <button
+        class="px-5 py-3 font-medium text-white bg-indigo-500 rounded-md"
+        (click)="copyHtmlToClipboard(clipboardHtml)"
+      >
+        Copy to Clipboard
+      </button>
+      <textarea class="sr-only" #clipboardHtml>{{ inputHtmlCode }}</textarea>
+    </div>
+  </div>
+</div>
