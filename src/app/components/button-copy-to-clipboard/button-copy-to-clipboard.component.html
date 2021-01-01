@@ -1,0 +1,9 @@
+<div>
+  <button
+    class="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-200 rounded-md"
+    (click)="copyHTMLToClipboard(clipboardHtml)"
+  >
+    Copy to Clipboard
+  </button>
+  <textarea class="sr-only" readonly #clipboardHtml>{{ inputHTML }}</textarea>
+</div>

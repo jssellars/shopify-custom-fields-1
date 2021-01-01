@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-input-field-example',
-  templateUrl: './input-field-example.component.html',
-  styleUrls: ['./input-field-example.component.css']
+  selector: 'app-select-field-example',
+  templateUrl: './select-field-example.component.html',
+  styleUrls: ['./select-field-example.component.css']
 })
-export class InputFieldExampleComponent implements OnInit {
-  inputHTML: string = '<input id="your-name" type="text" name="properties[Your name]">'
+export class SelectFieldExampleComponent implements OnInit {
+  inputHTML: string = '<select id="your-name" name="properties[Your name]">\n\t<option>USA</option>\n\t<option selected>Canada</option>\n\t<option>EU</option>\n</select>'
   inputHTMLExample!: SafeHtml; // `!` ignores the strictPropertyInitialization rule
 
   constructor(private sanitizer: DomSanitizer) {}
