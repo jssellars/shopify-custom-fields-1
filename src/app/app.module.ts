@@ -3,12 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { SelectFieldTypeComponent } from './components/select-field-type/select-field-type.component';
+import { SelectFormFieldComponent } from './components/select-form-field/select-form-field.component';
+import { InputFieldExampleComponent } from './components/input-field-example/input-field-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SelectFieldTypeComponent
+    SelectFormFieldComponent,
+    InputFieldExampleComponent
   ],
   imports: [
     BrowserModule,

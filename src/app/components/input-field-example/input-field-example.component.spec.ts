@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectFieldTypeComponent } from './select-field-type.component';
+import { InputFieldExampleComponent } from './input-field-example.component';
 
-describe('SelectFieldTypeComponent', () => {
-  let component: SelectFieldTypeComponent;
-  let fixture: ComponentFixture<SelectFieldTypeComponent>;
+describe('InputFieldExampleComponent', () => {
+  let component: InputFieldExampleComponent;
+  let fixture: ComponentFixture<InputFieldExampleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SelectFieldTypeComponent ]
+      declarations: [ InputFieldExampleComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SelectFieldTypeComponent);
+    fixture = TestBed.createComponent(InputFieldExampleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

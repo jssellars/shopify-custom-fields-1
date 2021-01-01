@@ -1,13 +1,12 @@
-import { HtmlTagDefinition } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-select-field-type',
-  templateUrl: './select-field-type.component.html',
-  styleUrls: ['./select-field-type.component.css']
+  selector: 'app-select-form-field',
+  templateUrl: './select-form-field.component.html',
+  styleUrls: ['./select-form-field.component.css']
 })
-export class SelectFieldTypeComponent implements OnInit {
+export class SelectFormFieldComponent implements OnInit {
 
   formFields: string[] = ['input', 'textarea', 'select', 'checkbox', 'radio']
   selectedFormField: string = '';
