@@ -1,0 +1,29 @@
+<div>
+  <div>
+    <div *ngFor="let selectOption of selectOptions; index as i">
+      {{ selectOption }}
+      <button (click)="removeOption(i)">x</button>
+    </div>
+  </div>
+
+  <div>
+    <input type="text" #inputAddOption />
+    <button (click)="addOption(inputAddOption)">+</button>
+  </div>
+
+  <input
+    type="text"
+    [(ngModel)]="propertyName"
+    (ngModelChange)="getElementHTML()"
+  />
+
+  <select name="properties[{{ propertyName }}]" #selectField>
+    <option *ngFor="let selectOption of selectOptions">
+      {{ selectOption }}
+    </option>
+  </select>
+
+  <pre class="flex p-2 text-gray-100 bg-gray-900">
+    <code>{{ elementHTML }}</code>
+  </pre>
+</div>

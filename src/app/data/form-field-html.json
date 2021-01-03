@@ -1,7 +1,0 @@
-{
-  "input": "<input type='text'>",
-  "textarea": "<textarea></textarea>",
-  "select": "<select>\n\t<option>USA</option>\n\t<option>Canada</option>\n</select>",
-  "checkbox": "<input type='checkbox'>",
-  "radio": "<input type='radio'>"
-}

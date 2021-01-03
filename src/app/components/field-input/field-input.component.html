@@ -1,0 +1,21 @@
+<div>
+  <input
+    type="text"
+    [(ngModel)]="propertyName"
+    (ngModelChange)="getElementHTML()"
+  />
+
+  <select [(ngModel)]="elementType">
+    <option *ngFor="let elementType of elementTypes">
+      {{ elementType }}
+    </option>
+  </select>
+
+  <input
+    [type]="elementType"
+    name="properties[{{ propertyName }}]"
+    #inputField
+  />
+
+  <div class="p-2 text-gray-100 bg-gray-900">{{ elementHTML }}</div>
+</div>

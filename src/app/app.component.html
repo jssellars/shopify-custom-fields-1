@@ -1,5 +1,10 @@
-<div class="max-w-5xl px-4 py-8 mx-auto space-y-6">
+<div class="max-w-5xl px-4 py-8 mx-auto">
   <app-select-form-field (setFormFieldEvent)="setFormField($event)">
   </app-select-form-field>
-  <app-form-field-example [formField]="formField"></app-form-field-example>
+  <hr class="my-4" />
+  <app-field-input></app-field-input>
+  <hr class="my-4" />
+  <app-field-select></app-field-select>
+  <hr class="my-4" />
+  <app-field-textarea></app-field-textarea>
 </div>
