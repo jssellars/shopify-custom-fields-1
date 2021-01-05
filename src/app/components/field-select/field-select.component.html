@@ -1,29 +1,86 @@
-<div>
+<div class="space-y-6">
   <div>
-    <div *ngFor="let selectOption of selectOptions; index as i">
-      {{ selectOption }}
-      <button (click)="removeOption(i)">x</button>
+    <div>
+      <label class="sr-only" for="item"> Item </label>
+
+      <div class="relative">
+        <input
+          class="relative block w-full pr-20 border-gray-300 rounded-md h-14 focus:ring-indigo-500 sm:text-sm"
+          type="text"
+          #inputAddOption
+        />
+        <span class="absolute transform -translate-y-1/2 right-2 top-1/2">
+          <button
+            class="h-10 px-5 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
+            (click)="addOption(inputAddOption)"
+          >
+            Add
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap mt-4 -m-1">
+      <span
+        class="inline-flex rounded-full items-center py-0.5 pl-2.5 pr-1 text-sm font-medium bg-indigo-100 text-indigo-700 m-1"
+        *ngFor="let selectOption of selectOptions; index as i"
+      >
+        {{ selectOption | truncate: 15 }}
+        <button
+          class="inline-flex items-center justify-center flex-shrink-0 w-4 h-4 ml-1 text-indigo-400 rounded-full hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white"
+          (click)="removeOption(i)"
+        >
+          <span class="sr-only">Remove {{ selectOption }} option</span>
+          <svg
+            class="w-2 h-2"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 8 8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-width="1.5"
+              d="M1 1l6 6m0-6L1 7"
+            />
+          </svg>
+        </button>
+      </span>
     </div>
   </div>
 
   <div>
-    <input type="text" #inputAddOption />
-    <button (click)="addOption(inputAddOption)">+</button>
+    <label class="block text-sm font-medium text-gray-700" for="name">
+      Name
+    </label>
+
+    <p class="mt-1 text-sm text-gray-500" id="name-description">
+      The name here is what appears in the checkout, orders and confirmation
+      emails
+    </p>
+
+    <input
+      class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
+      type="text"
+      aria-describedby="name-description"
+      [(ngModel)]="propertyName"
+      (ngModelChange)="getElementHTML()"
+    />
   </div>
 
-  <input
-    type="text"
-    [(ngModel)]="propertyName"
-    (ngModelChange)="getElementHTML()"
-  />
+  <div>
+    <p class="text-lg font-medium text-gray-700">How it appears</p>
 
-  <select name="properties[{{ propertyName }}]" #selectField>
-    <option *ngFor="let selectOption of selectOptions">
-      {{ selectOption }}
-    </option>
-  </select>
+    <div class="mt-2">
+      <select name="properties[{{ propertyName }}]" #selectField>
+        <option *ngFor="let selectOption of selectOptions">
+          {{ selectOption }}
+        </option>
+      </select>
+    </div>
+  </div>
 
-  <pre class="flex p-2 text-gray-100 bg-gray-900">
-    <code>{{ elementHTML }}</code>
-  </pre>
+  <div>
+    <app-button-copy-to-clipboard [inputHTML]="elementHTML">
+    </app-button-copy-to-clipboard>
+  </div>
 </div>

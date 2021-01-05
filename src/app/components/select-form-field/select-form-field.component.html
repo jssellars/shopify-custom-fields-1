@@ -1,12 +1,68 @@
-<div>
-  <label class="font-medium text-gray-700"> Select Form Field </label>
+<fieldset>
+  <legend class="sr-only">Privacy setting</legend>
 
-  <select
-    class="w-full p-3 mt-1 border-gray-300 rounded-md"
-    [(ngModel)]="selectedFormField"
-    (ngModelChange)="setFormField()"
-  >
-    <option value="" disabled>Please Select</option>
-    <option *ngFor="let formField of formFields">{{ formField }}</option>
-  </select>
-</div>
+  <div class="-space-y-px bg-white rounded-md">
+    <!-- On: "bg-indigo-50 border-indigo-200 z-10", Off: "border-gray-200" -->
+    <div class="relative flex p-4 border rounded-tl-md rounded-tr-md">
+      <div class="flex items-center h-5">
+        <input
+          class="w-4 h-4 text-indigo-600 border-gray-300 cursor-pointer focus:ring-indigo-500"
+          value="input"
+          type="radio"
+          name="formFieldType"
+          id="input-field"
+          (input)="setFormField($any($event))"
+          checked
+        />
+      </div>
+      <label for="input-field" class="flex flex-col ml-3 cursor-pointer">
+        <!-- On: "text-indigo-900", Off: "text-gray-900" -->
+        <span class="block text-sm font-medium"> Input </span>
+        <!-- On: "text-indigo-700", Off: "text-gray-500" -->
+        <span class="block text-sm">
+          This project would be available to anyone who has the link
+        </span>
+      </label>
+    </div>
+
+    <div class="relative flex p-4 border border-gray-200">
+      <div class="flex items-center h-5">
+        <input
+          class="w-4 h-4 text-indigo-600 border-gray-300 cursor-pointer focus:ring-indigo-500"
+          value="textarea"
+          type="radio"
+          name="formFieldType"
+          id="textarea-field"
+          (input)="setFormField($any($event))"
+        />
+      </div>
+      <label for="textarea-field" class="flex flex-col ml-3 cursor-pointer">
+        <span class="block text-sm font-medium"> Textarea </span>
+        <span class="block text-sm">
+          Only members of this project would be able to access
+        </span>
+      </label>
+    </div>
+
+    <div
+      class="relative flex p-4 border border-gray-200 rounded-bl-md rounded-br-md"
+    >
+      <div class="flex items-center h-5">
+        <input
+          class="w-4 h-4 text-indigo-600 border-gray-300 cursor-pointer focus:ring-indigo-500"
+          value="select"
+          type="radio"
+          name="formFieldType"
+          id="select-field"
+          (input)="setFormField($any($event))"
+        />
+      </div>
+      <label for="select-field" class="flex flex-col ml-3 cursor-pointer">
+        <span class="block text-sm font-medium"> Select </span>
+        <span class="block text-sm">
+          You are the only one able to access this project
+        </span>
+      </label>
+    </div>
+  </div>
+</fieldset>

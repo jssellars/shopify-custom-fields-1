@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-field-select',
@@ -13,7 +13,7 @@ export class FieldSelectComponent implements OnInit {
   selectOptions: string[] = ['USA', 'Canada']
   elementHTML!: string;
 
-  constructor() { }
+  constructor(private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -23,13 +23,12 @@ export class FieldSelectComponent implements OnInit {
   }
 
   getElementHTML(): void {
+    this.changeDetector.detectChanges()
+
     const commentRegex = /(<!--.*?-->)|(<!--[\S\s]+?-->)|(<!--[\S\s]*?$)/g
     
     if(this.selectField.nativeElement) {
-      setTimeout(() => {
-        let elementHTML = this.selectField.nativeElement.outerHTML
-        this.elementHTML = elementHTML.replace(commentRegex, "")
-      }, 50)
+      this.elementHTML = this.selectField.nativeElement.outerHTML.replace(commentRegex, "")
     }
   }
 
@@ -41,6 +40,6 @@ export class FieldSelectComponent implements OnInit {
 
   addOption(element: HTMLInputElement) {
     this.selectOptions.push(element.value)
+    element.value = ''  
   }
-
 }

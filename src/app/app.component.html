@@ -1,10 +1,12 @@
-<div class="max-w-5xl px-4 py-8 mx-auto">
-  <app-select-form-field (setFormFieldEvent)="setFormField($event)">
-  </app-select-form-field>
-  <hr class="my-4" />
-  <app-field-input></app-field-input>
-  <hr class="my-4" />
-  <app-field-select></app-field-select>
-  <hr class="my-4" />
-  <app-field-textarea></app-field-textarea>
+<div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 lg:py-20">
+  <div class="grid grid-cols-3 gap-8">
+    <app-select-form-field [(formField)]="formField"></app-select-form-field>
+
+    <div class="col-span-2 p-8 bg-gray-50 rounded-xl">
+      <!-- replace this with a component loader -->
+      <app-field-input *ngIf="formField === 'input'"></app-field-input>
+      <app-field-textarea *ngIf="formField === 'textarea'"></app-field-textarea>
+      <app-field-select *ngIf="formField === 'select'"></app-field-select>
+    </div>
+  </div>
 </div>

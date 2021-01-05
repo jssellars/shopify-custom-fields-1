@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-field-input',
@@ -14,7 +14,7 @@ export class FieldInputComponent implements OnInit {
   propertyName: string = 'Example'
   elementHTML!: string
 
-  constructor() { }
+  constructor(private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -24,11 +24,10 @@ export class FieldInputComponent implements OnInit {
   }
 
   getElementHTML(): void {
+    this.changeDetector.detectChanges()
+    
     if(this.inputField.nativeElement) {
-      setTimeout(() => {
-        this.elementHTML = this.inputField.nativeElement.outerHTML
-      }, 50)
+      this.elementHTML = this.inputField.nativeElement.outerHTML
     }
   }
-
 }

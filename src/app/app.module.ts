@@ -8,6 +8,7 @@ import { ButtonCopyToClipboardComponent } from './components/button-copy-to-clip
 import { FieldInputComponent } from './components/field-input/field-input.component';
 import { FieldSelectComponent } from './components/field-select/field-select.component';
 import { FieldTextareaComponent } from './components/field-textarea/field-textarea.component';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FieldTextareaComponent } from './components/field-textarea/field-textar
     ButtonCopyToClipboardComponent,
     FieldInputComponent,
     FieldSelectComponent,
-    FieldTextareaComponent
+    FieldTextareaComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

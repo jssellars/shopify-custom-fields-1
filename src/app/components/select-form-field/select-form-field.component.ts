@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-select-form-field',
@@ -6,17 +6,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./select-form-field.component.css']
 })
 export class SelectFormFieldComponent implements OnInit {
-  formFields: string[] = ['input', 'textarea', 'select', 'checkbox', 'radio']
-  selectedFormField!: string;
+  formFields: string[] = ['input', 'textarea', 'select']
 
-  @Output() setFormFieldEvent = new EventEmitter<string>();
+  @Input() formField!: string;
+  @Output() formFieldChange = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {
   }
 
-  setFormField() {
-    this.setFormFieldEvent.emit(this.selectedFormField)
+  setFormField(event: InputEvent): void {
+    const element = event.currentTarget as HTMLInputElement
+    
+    this.formFieldChange.emit(element.value)
   }
 }

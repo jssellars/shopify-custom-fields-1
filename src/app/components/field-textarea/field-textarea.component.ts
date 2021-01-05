@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-field-textarea',
@@ -12,7 +12,7 @@ export class FieldTextareaComponent implements OnInit {
   propertyName: string = 'Example'
   elementHTML!: string;
 
-  constructor() { }
+  constructor(private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -22,11 +22,10 @@ export class FieldTextareaComponent implements OnInit {
   }
 
   getElementHTML(): void {
+    this.changeDetector.detectChanges()
+
     if(this.textareaField.nativeElement) {
-      setTimeout(() => {
-        this.elementHTML = this.textareaField.nativeElement.outerHTML
-      }, 50)
+      this.elementHTML = this.textareaField.nativeElement.outerHTML
     }
   }
-
 }
