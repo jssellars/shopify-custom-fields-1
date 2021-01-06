@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Shopify Line Item Generator';
 
-  formField: string = 'select';
+  formField: string = 'input';
 
   setFormField(value: string) {
     this.formField = value

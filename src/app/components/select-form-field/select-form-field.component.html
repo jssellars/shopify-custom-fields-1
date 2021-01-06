@@ -1,68 +1,42 @@
 <fieldset>
   <legend class="sr-only">Privacy setting</legend>
 
-  <div class="-space-y-px bg-white rounded-md">
-    <!-- On: "bg-indigo-50 border-indigo-200 z-10", Off: "border-gray-200" -->
-    <div class="relative flex p-4 border rounded-tl-md rounded-tr-md">
-      <div class="flex items-center h-5">
-        <input
-          class="w-4 h-4 text-indigo-600 border-gray-300 cursor-pointer focus:ring-indigo-500"
-          value="input"
-          type="radio"
-          name="formFieldType"
-          id="input-field"
-          (input)="setFormField($any($event))"
-          checked
-        />
-      </div>
-      <label for="input-field" class="flex flex-col ml-3 cursor-pointer">
-        <!-- On: "text-indigo-900", Off: "text-gray-900" -->
-        <span class="block text-sm font-medium"> Input </span>
-        <!-- On: "text-indigo-700", Off: "text-gray-500" -->
-        <span class="block text-sm">
-          This project would be available to anyone who has the link
-        </span>
-      </label>
-    </div>
-
-    <div class="relative flex p-4 border border-gray-200">
-      <div class="flex items-center h-5">
-        <input
-          class="w-4 h-4 text-indigo-600 border-gray-300 cursor-pointer focus:ring-indigo-500"
-          value="textarea"
-          type="radio"
-          name="formFieldType"
-          id="textarea-field"
-          (input)="setFormField($any($event))"
-        />
-      </div>
-      <label for="textarea-field" class="flex flex-col ml-3 cursor-pointer">
-        <span class="block text-sm font-medium"> Textarea </span>
-        <span class="block text-sm">
-          Only members of this project would be able to access
-        </span>
-      </label>
-    </div>
-
+  <div class="-space-y-px overflow-hidden bg-white">
     <div
-      class="relative flex p-4 border border-gray-200 rounded-bl-md rounded-br-md"
+      *ngFor="
+        let _formField of formFields;
+        index as i;
+        first as first;
+        last as last
+      "
     >
-      <div class="flex items-center h-5">
-        <input
-          class="w-4 h-4 text-indigo-600 border-gray-300 cursor-pointer focus:ring-indigo-500"
-          value="select"
-          type="radio"
-          name="formFieldType"
-          id="select-field"
-          (input)="setFormField($any($event))"
-        />
+      <div
+        class="relative flex p-4 border"
+        [ngClass]="inputWrapperClass(_formField, first, last)"
+      >
+        <div class="flex items-center h-5">
+          <input
+            class="w-4 h-4 text-indigo-600 border-gray-300 cursor-pointer focus:ring-indigo-500"
+            [value]="_formField"
+            type="radio"
+            name="formFieldType"
+            id="{{ _formField }}-field"
+            (input)="setFormField($any($event))"
+            [checked]="_formField === formField"
+          />
+        </div>
+        <label
+          for="{{ _formField }}-field"
+          class="flex flex-col ml-3 cursor-pointer"
+        >
+          <span class="block text-sm font-medium text-gray-900">
+            {{ _formField | titlecase }}
+          </span>
+          <span class="block text-sm text-gray-500">
+            This project would be available to anyone who has the link
+          </span>
+        </label>
       </div>
-      <label for="select-field" class="flex flex-col ml-3 cursor-pointer">
-        <span class="block text-sm font-medium"> Select </span>
-        <span class="block text-sm">
-          You are the only one able to access this project
-        </span>
-      </label>
     </div>
   </div>
 </fieldset>
