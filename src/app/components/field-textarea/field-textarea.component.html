@@ -1,5 +1,5 @@
-<div class="space-y-6">
-  <div>
+<div class="flex flex-col justify-between h-full space-y-6">
+  <div class="h-full p-8 bg-gray-50 rounded-2xl">
     <p class="text-lg font-medium text-gray-700">How it appears</p>
 
     <div class="mt-2">
@@ -7,8 +7,6 @@
     </div>
   </div>
 
-  <div>
-    <app-button-copy-to-clipboard [inputHTML]="elementHTML">
-    </app-button-copy-to-clipboard>
-  </div>
+  <app-button-copy-to-clipboard [inputHTML]="elementHTML">
+  </app-button-copy-to-clipboard>
 </div>

@@ -1,9 +1,24 @@
-<div>
-  <button
-    class="px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
-    (click)="copyHTMLToClipboard(clipboardHtml)"
-  >
-    Copy to Clipboard
-  </button>
-  <textarea class="sr-only" readonly #clipboardHtml>{{ inputHTML }}</textarea>
+<div
+  class="p-8 lg:flex lg:items-center lg:justify-between bg-indigo-50 rounded-2xl"
+>
+  <div>
+    <h2 class="text-xl font-bold text-gray-900">
+      Want this on your Shopify site?
+    </h2>
+
+    <p class="max-w-md mt-2 text-sm leading-loose text-gray-500">
+      Click the "Copy to Clipboard" button and paste the HTML code into the
+      <code>sections/product.liquid</code>
+      template on Shopify.
+    </p>
+  </div>
+  <div class="flex mt-8 lg:mt-0 lg:flex-shrink-0">
+    <button
+      class="px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
+      (click)="copyHTMLToClipboard(clipboardHtml)"
+    >
+      Copy to Clipboard
+    </button>
+    <textarea class="sr-only" readonly #clipboardHtml>{{ inputHTML }}</textarea>
+  </div>
 </div>

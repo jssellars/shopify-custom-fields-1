@@ -1,19 +1,31 @@
-<div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 lg:py-20">
-  <div class="grid grid-cols-3 gap-8">
-    <app-select-form-field [(formField)]="formField" [(formName)]="formName">
-    </app-select-form-field>
+<div>
+  <app-page-header></app-page-header>
 
-    <div class="col-span-2 p-8 bg-gray-50 rounded-xl">
-      <!-- replace this with a component loader -->
-      <app-field-input [formName]="formName" *ngIf="formField === 'input'">
-      </app-field-input>
-      <app-field-textarea
-        [formName]="formName"
-        *ngIf="formField === 'textarea'"
-      >
-      </app-field-textarea>
-      <app-field-select [formName]="formName" *ngIf="formField === 'select'">
-      </app-field-select>
+  <div class="max-w-screen-xl px-4 mx-auto">
+    <div class="p-8 -mt-8 bg-white shadow-md sm:-mt-16 rounded-2xl">
+      <div class="grid grid-cols-3 gap-8">
+        <app-select-form-field
+          [(formField)]="formField"
+          [(formName)]="formName"
+        >
+        </app-select-form-field>
+
+        <div class="col-span-2">
+          <!-- replace this with a component loader -->
+          <app-field-input [formName]="formName" *ngIf="formField === 'input'">
+          </app-field-input>
+          <app-field-textarea
+            [formName]="formName"
+            *ngIf="formField === 'textarea'"
+          >
+          </app-field-textarea>
+          <app-field-select
+            [formName]="formName"
+            *ngIf="formField === 'select'"
+          >
+          </app-field-select>
+        </div>
+      </div>
     </div>
   </div>
 </div>

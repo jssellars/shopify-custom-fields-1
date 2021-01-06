@@ -9,6 +9,7 @@ import { FieldInputComponent } from './components/field-input/field-input.compon
 import { FieldSelectComponent } from './components/field-select/field-select.component';
 import { FieldTextareaComponent } from './components/field-textarea/field-textarea.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     FieldSelectComponent,
     FieldTextareaComponent,
     TruncatePipe,
+    PageHeaderComponent,
   ],
   imports: [
     BrowserModule,
