@@ -18,7 +18,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     FieldInputComponent,
     FieldSelectComponent,
     FieldTextareaComponent,
-    TruncatePipe
+    TruncatePipe,
   ],
   imports: [
     BrowserModule,

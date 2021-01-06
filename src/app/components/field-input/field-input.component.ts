@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-field-input',
@@ -8,10 +8,10 @@ import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDete
 })
 export class FieldInputComponent implements OnInit {
   @ViewChild('inputField') inputField!: ElementRef
+  @Input() formName!: string;
 
   elementTypes: string[] = ['text', 'checkbox', 'radio']
   elementType: string = 'text'
-  propertyName: string = 'Example'
   elementHTML!: string
 
   constructor(private changeDetector: ChangeDetectorRef) { }
@@ -23,7 +23,11 @@ export class FieldInputComponent implements OnInit {
     this.getElementHTML()
   }
 
-  getElementHTML(): void {
+  ngOnChanges(): void {
+    this.getElementHTML()
+  }
+
+  private getElementHTML(): void {
     this.changeDetector.detectChanges()
     
     if(this.inputField.nativeElement) {

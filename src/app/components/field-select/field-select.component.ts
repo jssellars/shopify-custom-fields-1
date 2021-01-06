@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-field-select',
@@ -8,8 +8,8 @@ import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDete
 })
 export class FieldSelectComponent implements OnInit {
   @ViewChild('selectField') selectField!: ElementRef;
+  @Input() formName!: string;
 
-  propertyName: string = 'Example'
   selectOptions: string[] = ['USA', 'Canada']
   elementHTML!: string;
 
@@ -22,7 +22,26 @@ export class FieldSelectComponent implements OnInit {
     this.getElementHTML()
   }
 
-  getElementHTML(): void {
+  ngOnChanges(): void {
+    this.getElementHTML()
+  }
+
+  removeOption(index: number) {
+    if(this.selectOptions) {
+      this.selectOptions.splice(index, 1)
+    }
+
+    this.getElementHTML()
+  }
+
+  addOption(element: HTMLInputElement) {
+    this.selectOptions.push(element.value)
+    element.value = ''  
+
+    this.getElementHTML()
+  }
+
+  private getElementHTML(): void {
     this.changeDetector.detectChanges()
 
     const commentRegex = /(<!--.*?-->)|(<!--[\S\s]+?-->)|(<!--[\S\s]*?$)/g
@@ -30,16 +49,5 @@ export class FieldSelectComponent implements OnInit {
     if(this.selectField.nativeElement) {
       this.elementHTML = this.selectField.nativeElement.outerHTML.replace(commentRegex, "")
     }
-  }
-
-  removeOption(index: number) {
-    if(this.selectOptions) {
-      this.selectOptions.splice(index, 1)
-    }
-  }
-
-  addOption(element: HTMLInputElement) {
-    this.selectOptions.push(element.value)
-    element.value = ''  
   }
 }

@@ -1,42 +1,55 @@
-<fieldset>
-  <legend class="sr-only">Privacy setting</legend>
+<div>
+  <fieldset>
+    <legend class="sr-only">Privacy setting</legend>
 
-  <div class="-space-y-px overflow-hidden bg-white">
-    <div
-      *ngFor="
-        let _formField of formFields;
-        index as i;
-        first as first;
-        last as last
-      "
-    >
-      <div
-        class="relative flex p-4 border"
-        [ngClass]="inputWrapperClass(_formField, first, last)"
-      >
-        <div class="flex items-center h-5">
-          <input
-            class="w-4 h-4 text-indigo-600 border-gray-300 cursor-pointer focus:ring-indigo-500"
-            [value]="_formField"
-            type="radio"
-            name="formFieldType"
-            id="{{ _formField }}-field"
-            (input)="setFormField($any($event))"
-            [checked]="_formField === formField"
-          />
-        </div>
-        <label
-          for="{{ _formField }}-field"
-          class="flex flex-col ml-3 cursor-pointer"
+    <div class="-space-y-px overflow-hidden bg-white">
+      <div *ngFor="let _formField of formFields; first as first; last as last">
+        <div
+          class="relative flex p-4 border"
+          [ngClass]="inputWrapperClass(_formField, first, last)"
         >
-          <span class="block text-sm font-medium text-gray-900">
-            {{ _formField | titlecase }}
-          </span>
-          <span class="block text-sm text-gray-500">
-            This project would be available to anyone who has the link
-          </span>
-        </label>
+          <div class="flex items-center h-5">
+            <input
+              class="w-4 h-4 text-indigo-600 border-gray-300 cursor-pointer focus:ring-indigo-500"
+              [value]="_formField"
+              type="radio"
+              name="formFieldType"
+              id="{{ _formField }}-field"
+              (input)="setFormField($any($event))"
+              [checked]="_formField === formField"
+            />
+          </div>
+          <label
+            for="{{ _formField }}-field"
+            class="flex flex-col ml-3 cursor-pointer"
+          >
+            <span class="block text-sm font-medium text-gray-900">
+              {{ _formField | titlecase }}
+            </span>
+            <span class="block text-sm text-gray-500">
+              This project would be available to anyone who has the link
+            </span>
+          </label>
+        </div>
       </div>
     </div>
+  </fieldset>
+
+  <div class="mt-8">
+    <label class="block text-sm font-medium text-gray-700" for="name">
+      Name
+    </label>
+
+    <p class="mt-1 text-sm text-gray-500" id="name-description">
+      The name here is what appears in the checkout, orders and confirmation
+      emails
+    </p>
+
+    <input
+      class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
+      type="text"
+      aria-describedby="name-description"
+      (input)="setFormName($any($event))"
+    />
   </div>
-</fieldset>
+</div>

@@ -9,8 +9,13 @@ export class AppComponent {
   title = 'Shopify Line Item Generator';
 
   formField: string = 'input';
+  formName: string = 'Example'
 
   setFormField(value: string) {
     this.formField = value
+  }
+
+  setFormName(value: string) {
+    this.formName = value
   }
 }

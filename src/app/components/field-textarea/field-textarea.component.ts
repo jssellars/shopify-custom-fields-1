@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-field-textarea',
@@ -8,8 +8,8 @@ import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDete
 })
 export class FieldTextareaComponent implements OnInit {
   @ViewChild('textareaField') textareaField!: ElementRef;
+  @Input() formName!: string;
 
-  propertyName: string = 'Example'
   elementHTML!: string;
 
   constructor(private changeDetector: ChangeDetectorRef) { }
@@ -21,7 +21,11 @@ export class FieldTextareaComponent implements OnInit {
     this.getElementHTML()
   }
 
-  getElementHTML(): void {
+  ngOnChanges(): void {
+    this.getElementHTML()
+  }
+
+  private getElementHTML(): void {
     this.changeDetector.detectChanges()
 
     if(this.textareaField.nativeElement) {

@@ -1,28 +1,9 @@
 <div class="space-y-6">
   <div>
-    <label class="block text-sm font-medium text-gray-700" for="name">
-      Name
-    </label>
-
-    <p class="mt-1 text-sm text-gray-500" id="name-description">
-      The name here is what appears in the checkout, orders and confirmation
-      emails
-    </p>
-
-    <input
-      class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
-      type="text"
-      aria-describedby="name-description"
-      [(ngModel)]="propertyName"
-      (ngModelChange)="getElementHTML()"
-    />
-  </div>
-
-  <div>
     <p class="text-lg font-medium text-gray-700">How it appears</p>
 
     <div class="mt-2">
-      <textarea name="properties[{{ propertyName }}]" #textareaField></textarea>
+      <textarea name="properties[{{ formName }}]" #textareaField></textarea>
     </div>
   </div>
 

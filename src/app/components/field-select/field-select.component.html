@@ -1,24 +1,26 @@
 <div class="space-y-6">
   <div>
     <div>
-      <label class="sr-only" for="item"> Item </label>
+      <form (submit)="addOption(inputAddOption)">
+        <label class="sr-only" for="item"> Item </label>
 
-      <div class="relative">
-        <input
-          class="relative block w-full pr-20 border-gray-300 rounded-md h-14 focus:ring-indigo-500 sm:text-sm"
-          type="text"
-          placeholder="Add an option to the select field"
-          #inputAddOption
-        />
-        <span class="absolute transform -translate-y-1/2 right-2 top-1/2">
-          <button
-            class="h-10 px-5 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
-            (click)="addOption(inputAddOption)"
-          >
-            Add
-          </button>
-        </span>
-      </div>
+        <div class="relative">
+          <input
+            class="relative block w-full pr-32 border-gray-300 rounded-md h-14 focus:ring-indigo-500 sm:text-sm"
+            type="text"
+            placeholder="Add an option to the select field"
+            #inputAddOption
+          />
+          <span class="absolute transform -translate-y-1/2 right-2 top-1/2">
+            <button
+              class="h-10 px-5 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
+              type="submit"
+            >
+              Add item
+            </button>
+          </span>
+        </div>
+      </form>
     </div>
 
     <div class="flex flex-wrap mt-4 -m-1">
@@ -50,29 +52,10 @@
   </div>
 
   <div>
-    <label class="block text-sm font-medium text-gray-700" for="name">
-      Name
-    </label>
-
-    <p class="mt-1 text-sm text-gray-500" id="name-description">
-      The name here is what appears in the checkout, orders and confirmation
-      emails
-    </p>
-
-    <input
-      class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
-      type="text"
-      aria-describedby="name-description"
-      [(ngModel)]="propertyName"
-      (ngModelChange)="getElementHTML()"
-    />
-  </div>
-
-  <div>
     <p class="text-lg font-medium text-gray-700">How it appears</p>
 
     <div class="mt-2">
-      <select name="properties[{{ propertyName }}]" #selectField>
+      <select name="properties[{{ formName }}]" #selectField>
         <option *ngFor="let selectOption of selectOptions">
           {{ selectOption }}
         </option>

@@ -9,7 +9,9 @@ export class SelectFormFieldComponent implements OnInit {
   formFields: string[] = ['input', 'textarea', 'select']
 
   @Input() formField!: string;
+  @Input() formName!: string;
   @Output() formFieldChange = new EventEmitter<string>();
+  @Output() formNameChange = new EventEmitter<string>();
 
   constructor() {}
 
@@ -20,6 +22,12 @@ export class SelectFormFieldComponent implements OnInit {
     const element = event.currentTarget as HTMLInputElement
     
     this.formFieldChange.emit(element.value)
+  }
+
+  setFormName(event: InputEvent): void {
+    const element = event.currentTarget as HTMLInputElement
+
+    this.formNameChange.emit(element.value)
   }
 
   inputWrapperClass(value: string = 'input', first: boolean, last: boolean) {
