@@ -20,6 +20,10 @@ export class FieldInputComponent implements OnChanges {
     this.getElementHTML();
   }
 
+  elementTypeChange(): void {
+    this.getElementHTML()
+  }
+
   private getElementHTML(): void {
     this.changeDetector.detectChanges();
 

@@ -1,12 +1,40 @@
-<div class="flex flex-col justify-between h-full space-y-6">
-  <div class="h-full p-8 bg-gray-50 rounded-2xl">
-    <p class="text-lg font-medium text-gray-700">How it appears</p>
+<div class="space-y-8">
+  <div>
+    <label class="block text-sm font-medium text-gray-700" for="rows">
+      Rows
+    </label>
 
-    <div class="mt-2">
-      <textarea name="properties[{{ formName }}]" #textareaField></textarea>
-    </div>
+    <p class="mt-1 text-sm text-gray-500" id="rows-description">
+      Set how tall you want the textarea to appear
+    </p>
+
+    <select
+      [(ngModel)]="rowSize"
+      class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
+      id="rows"
+      aria-describedby="rows-description"
+    >
+      <option *ngFor="let rowSize of rowSizes">
+        {{ rowSize }}
+      </option>
+    </select>
   </div>
 
-  <app-button-copy-to-clipboard [inputHTML]="elementHTML">
-  </app-button-copy-to-clipboard>
+  <div>
+    <div class="hidden">
+      <textarea
+        name="properties[{{ formName }}]"
+        [rows]="rowSize"
+        #textareaField
+      ></textarea>
+    </div>
+
+    <app-example-store [elementType]="elementType" [rowSize]="rowSize">
+    </app-example-store>
+  </div>
+
+  <div>
+    <app-button-copy-to-clipboard [inputHTML]="elementHTML">
+    </app-button-copy-to-clipboard>
+  </div>
 </div>

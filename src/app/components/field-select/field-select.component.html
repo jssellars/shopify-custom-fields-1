@@ -1,68 +1,91 @@
-<div class="flex flex-col justify-between h-full space-y-6">
-  <div class="h-full p-8 bg-gray-50 rounded-2xl">
-    <div>
-      <form (submit)="addOption(inputAddOption)">
-        <label class="sr-only" for="item"> Item </label>
+<div class="space-y-8">
+  <div>
+    <form (submit)="addOption(inputAddOption)">
+      <label class="block text-sm font-medium text-gray-700" for="options">
+        Options
+      </label>
 
-        <div class="relative">
-          <input
-            class="relative block w-full pr-32 border-gray-300 rounded-md h-14 focus:ring-indigo-500 sm:text-sm"
-            type="text"
-            placeholder="Add an option to the select field"
-            #inputAddOption
-          />
-          <span class="absolute transform -translate-y-1/2 right-2 top-1/2">
-            <button
-              class="h-10 px-5 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
-              type="submit"
-            >
-              Add item
-            </button>
-          </span>
-        </div>
-      </form>
+      <p class="mt-1 text-sm text-gray-500" id="options-description">
+        Add more options to your select field
+      </p>
 
-      <div class="flex flex-wrap mt-2 -m-1">
-        <span
-          class="inline-flex rounded-full items-center py-0.5 pl-2.5 pr-1 text-sm font-medium bg-indigo-100 text-indigo-700 m-1"
-          *ngFor="let selectOption of selectOptions; index as i"
-        >
-          {{ selectOption | truncate: 15 }}
+      <div class="relative mt-2">
+        <input
+          class="block w-full pr-16 border-gray-300 rounded-md h-14 focus:ring-indigo-500 sm:text-sm"
+          type="text"
+          placeholder="Add an option to the select field"
+          id="options"
+          aria-describedby="options-description"
+          #inputAddOption
+        />
+        <span class="absolute transform -translate-y-1/2 right-2 top-1/2">
           <button
-            class="inline-flex items-center justify-center flex-shrink-0 w-4 h-4 ml-1 text-indigo-400 rounded-full hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white"
-            (click)="removeOption(i)"
+            class="inline-flex items-center justify-center w-10 h-10 text-sm text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
+            type="submit"
           >
-            <span class="sr-only">Remove {{ selectOption }} option</span>
             <svg
-              class="w-2 h-2"
-              stroke="currentColor"
-              fill="none"
-              viewBox="0 0 8 8"
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                stroke-linecap="round"
-                stroke-width="1.5"
-                d="M1 1l6 6m0-6L1 7"
-              />
+                fill-rule="evenodd"
+                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                clip-rule="evenodd"
+              ></path>
             </svg>
           </button>
         </span>
       </div>
-    </div>
+    </form>
 
-    <div class="mt-6">
-      <p class="text-lg font-medium text-gray-700">How it appears</p>
-
-      <div class="mt-2">
-        <select name="properties[{{ formName }}]" #selectField>
-          <option *ngFor="let selectOption of selectOptions">
-            {{ selectOption }}
-          </option>
-        </select>
-      </div>
+    <div class="flex flex-wrap mt-2 -m-1">
+      <span
+        class="inline-flex rounded-full items-center py-0.5 pl-2.5 pr-1 text-sm font-medium bg-indigo-100 text-indigo-700 m-1"
+        *ngFor="let selectOption of selectOptions; index as i"
+      >
+        {{ selectOption | truncate: 15 }}
+        <button
+          class="inline-flex items-center justify-center flex-shrink-0 w-4 h-4 ml-1 text-indigo-400 rounded-full hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white"
+          (click)="removeOption(i)"
+        >
+          <span class="sr-only">Remove {{ selectOption }} option</span>
+          <svg
+            class="w-2 h-2"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 8 8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-width="1.5"
+              d="M1 1l6 6m0-6L1 7"
+            />
+          </svg>
+        </button>
+      </span>
     </div>
   </div>
 
-  <app-button-copy-to-clipboard [inputHTML]="elementHTML">
-  </app-button-copy-to-clipboard>
+  <div>
+    <div class="hidden">
+      <select name="properties[{{ formName }}]" #selectField>
+        <option *ngFor="let selectOption of selectOptions">
+          {{ selectOption }}
+        </option>
+      </select>
+    </div>
+
+    <app-example-store
+      [elementType]="elementType"
+      [selectOptions]="selectOptions"
+    >
+    </app-example-store>
+  </div>
+
+  <div>
+    <app-button-copy-to-clipboard [inputHTML]="elementHTML">
+    </app-button-copy-to-clipboard>
+  </div>
 </div>
