@@ -13,9 +13,9 @@ export class ButtonCopyToClipboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  copyHTMLToClipboard(clipboardHtml: HTMLTextAreaElement) {
+  copyHTMLToClipboard(clipboardHtml: HTMLTextAreaElement): void {
     clipboardHtml.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     clipboardHtml.setSelectionRange(0, 0);
   }
 }

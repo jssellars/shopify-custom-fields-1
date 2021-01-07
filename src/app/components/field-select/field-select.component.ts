@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input } from '@angular/core';
+import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-field-select',
@@ -6,48 +6,41 @@ import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, ChangeDete
   styleUrls: ['./field-select.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class FieldSelectComponent implements OnInit {
+export class FieldSelectComponent implements OnChanges {
   @ViewChild('selectField') selectField!: ElementRef;
   @Input() formName!: string;
 
-  selectOptions: string[] = ['USA', 'Canada']
+  selectOptions: string[] = ['USA', 'Canada'];
   elementHTML!: string;
 
   constructor(private changeDetector: ChangeDetectorRef) { }
 
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.getElementHTML()
-  }
-
   ngOnChanges(): void {
-    this.getElementHTML()
+    this.getElementHTML();
   }
 
-  removeOption(index: number) {
-    if(this.selectOptions) {
-      this.selectOptions.splice(index, 1)
+  removeOption(index: number): void {
+    if (this.selectOptions) {
+      this.selectOptions.splice(index, 1);
     }
 
-    this.getElementHTML()
+    this.getElementHTML();
   }
 
-  addOption(element: HTMLInputElement) {
-    this.selectOptions.push(element.value)
-    element.value = ''  
+  addOption(element: HTMLInputElement): void {
+    this.selectOptions.push(element.value);
+    element.value = '';
 
-    this.getElementHTML()
+    this.getElementHTML();
   }
 
   private getElementHTML(): void {
-    this.changeDetector.detectChanges()
+    this.changeDetector.detectChanges();
 
-    const commentRegex = /(<!--.*?-->)|(<!--[\S\s]+?-->)|(<!--[\S\s]*?$)/g
-    
-    if(this.selectField.nativeElement) {
-      this.elementHTML = this.selectField.nativeElement.outerHTML.replace(commentRegex, "")
+    const commentRegex = /(<!--.*?-->)|(<!--[\S\s]+?-->)|(<!--[\S\s]*?$)/g;
+
+    if (this.selectField.nativeElement) {
+      this.elementHTML = this.selectField.nativeElement.outerHTML.replace(commentRegex, '');
     }
   }
 }
