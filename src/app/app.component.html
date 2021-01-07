@@ -1,16 +1,18 @@
-<div>
+<main>
   <app-page-header></app-page-header>
 
   <div class="max-w-screen-xl px-4 pb-8 mx-auto sm:pb-16">
     <div class="p-8 -mt-8 bg-white shadow-md sm:-mt-16 rounded-2xl">
-      <div class="grid grid-cols-3 gap-8">
-        <app-select-form-field
-          [(formField)]="formField"
-          [(formName)]="formName"
-        >
-        </app-select-form-field>
+      <div class="space-y-8 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
+        <div>
+          <app-select-form-field
+            [(formField)]="formField"
+            [(formName)]="formName"
+          >
+          </app-select-form-field>
+        </div>
 
-        <div class="col-span-2">
+        <div class="lg:col-span-2">
           <!-- replace this with a component loader -->
 
           <app-field-input [formName]="formName" *ngIf="formField === 'input'">
@@ -31,4 +33,4 @@
       </div>
     </div>
   </div>
-</div>
+</main>

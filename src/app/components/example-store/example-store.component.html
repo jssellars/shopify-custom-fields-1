@@ -6,15 +6,17 @@
     have its own style.
   </p>
 
-  <div class="flex mt-4 overflow-hidden bg-white shadow-md rounded-2xl">
-    <div class="relative flex-none w-48">
+  <div
+    class="mt-4 overflow-hidden bg-white shadow-md lg:flex rounded-2xl lg:items-stretch"
+  >
+    <div class="relative w-full h-48 lg:w-56 lg:h-auto">
       <img
         src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
         class="absolute inset-0 object-cover w-full h-full"
       />
     </div>
 
-    <form class="flex-auto p-6">
+    <form class="flex-1 p-6">
       <div class="flex flex-wrap">
         <h2 class="flex-auto text-xl font-semibold">Vibrant Bulky Trainer</h2>
         <div class="text-xl font-semibold text-gray-500">$110.00</div>
@@ -23,7 +25,7 @@
         </div>
       </div>
 
-      <div class="flex items-center mt-2">
+      <div class="mt-2 lg:flex lg:items-center">
         <fieldset class="flex space-x-2">
           <label
             *ngFor="let exampleSize of exampleSizes"
@@ -41,7 +43,9 @@
           </label>
         </fieldset>
 
-        <div class="ml-auto text-sm text-gray-500 underline">Size Guide</div>
+        <div class="mt-4 text-sm text-gray-500 underline lg:ml-auto lg:mt-0">
+          Size Guide
+        </div>
       </div>
 
       <div class="mt-6">

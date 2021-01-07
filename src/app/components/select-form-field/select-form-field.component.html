@@ -1,4 +1,46 @@
-<div class="lg:sticky lg:top-8">
+<div class="space-y-8 lg:sticky lg:top-8">
+  <div>
+    <label class="block text-sm font-medium text-gray-700" for="name">
+      Name
+    </label>
+
+    <p class="mt-1 text-sm text-gray-500" id="name-description">
+      The name here is what appears in the checkout, orders and confirmation
+      emails
+    </p>
+
+    <div class="relative mt-2">
+      <input
+        class="block w-full pr-16 border-gray-300 rounded-md h-14 focus:ring-indigo-500 sm:text-sm"
+        type="text"
+        placeholder="Set the form field name"
+        id="name"
+        aria-describedby="name-description"
+        (input)="setFormName($any($event))"
+      />
+
+      <span class="absolute transform -translate-y-1/2 right-2 top-1/2">
+        <button
+          class="inline-flex items-center justify-center w-10 h-10 text-sm text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
+          type="submit"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </span>
+    </div>
+  </div>
+
   <fieldset>
     <legend class="sr-only">Select form input</legend>
 
@@ -34,22 +76,4 @@
       </div>
     </div>
   </fieldset>
-
-  <div class="mt-8">
-    <label class="block text-sm font-medium text-gray-700" for="name">
-      Name
-    </label>
-
-    <p class="mt-1 text-sm text-gray-500" id="name-description">
-      The name here is what appears in the checkout, orders and confirmation
-      emails
-    </p>
-
-    <input
-      class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
-      type="text"
-      aria-describedby="name-description"
-      (input)="setFormName($any($event))"
-    />
-  </div>
 </div>
