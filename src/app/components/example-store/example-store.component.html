@@ -50,7 +50,11 @@
 
       <div class="mt-6">
         <div>
-          <div *ngIf="['text', 'select', 'textarea'].includes(elementType)">
+          <div
+            *ngIf="
+              ['text', 'number', 'select', 'textarea'].includes(elementType)
+            "
+          >
             <label
               for="customise"
               class="block text-sm font-medium text-gray-700"
@@ -64,7 +68,16 @@
               type="text"
               id="customise"
               class="block w-full mt-2 border-gray-300 rounded-md focus:ring-blue-500 sm:text-sm"
-              placeholder="Enter your name"
+              placeholder="Enter some text"
+            />
+          </div>
+
+          <div *ngIf="elementType === 'number'">
+            <input
+              type="number"
+              id="customise"
+              class="block w-full mt-2 border-gray-300 rounded-md focus:ring-blue-500 sm:text-sm"
+              placeholder="Enter a number"
             />
           </div>
 

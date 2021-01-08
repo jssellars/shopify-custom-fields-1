@@ -1,16 +1,16 @@
 <div class="space-y-8 lg:sticky lg:top-8">
   <div>
-    <label class="block text-sm font-medium text-gray-700" for="name">
-      Name
+    <label class="block font-medium text-gray-700" for="name">
+      Custom input name
     </label>
 
     <p class="mt-1 text-sm text-gray-500" id="name-description">
-      Will appear in the Shopify admin and to customers
+      Will appear in the Shopify admin and to the customers
     </p>
 
     <div class="relative mt-2">
       <input
-        class="block w-full h-16 pr-16 border-gray-200 rounded-2xl focus:ring-blue-500 sm:text-sm"
+        class="block w-full h-16 pl-4 pr-16 border-gray-200 rounded-2xl focus:ring-blue-500 sm:text-sm"
         type="text"
         placeholder="Set the form field name"
         id="name"
@@ -39,38 +39,36 @@
     </div>
   </div>
 
-  <fieldset>
+  <fieldset *ngIf="formFields">
     <legend class="sr-only">Select form input</legend>
 
     <div class="-space-y-px">
-      <div *ngFor="let _formField of formFields; first as first; last as last">
-        <div
-          class="relative flex p-4 border"
-          [ngClass]="inputWrapperClass(_formField, first, last)"
+      <div *ngFor="let formField of formFields; first as first; last as last">
+        <label
+          class="relative flex p-4 border cursor-pointer"
+          for="{{ formField.name }}-field"
+          [ngClass]="inputWrapperClass(formField.name, first, last)"
         >
-          <div class="flex items-center h-5">
+          <div class="flex items-center h-6">
             <input
               class="w-4 h-4 text-blue-600 border-gray-300 cursor-pointer focus:ring-blue-500"
-              [value]="_formField"
               type="radio"
               name="formFieldType"
-              id="{{ _formField }}-field"
+              id="{{ formField.name }}-field"
+              [value]="formField.name"
+              [checked]="first"
               (input)="setFormField($any($event))"
-              [checked]="_formField === formField"
             />
           </div>
-          <label
-            for="{{ _formField }}-field"
-            class="flex flex-col ml-3 cursor-pointer"
-          >
-            <span class="block text-sm font-medium text-gray-900">
-              {{ _formField | titlecase }}
-            </span>
-            <span class="block text-sm text-gray-500">
-              This project would be available to anyone who has the link
-            </span>
-          </label>
-        </div>
+          <dl class="ml-3 text-sm cursor-pointer">
+            <dt class="font-medium text-gray-900">
+              {{ formField.name | titlecase }}
+            </dt>
+            <dd class="text-gray-500">
+              {{ formField.description }}
+            </dd>
+          </dl>
+        </label>
       </div>
     </div>
   </fieldset>

@@ -1,25 +1,27 @@
-import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input, OnChanges } from '@angular/core';
+import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input, OnChanges, OnInit } from '@angular/core';
+import { InputTypesService } from 'src/app/services/input-types.service';
 
 @Component({
   selector: 'app-field-input',
   templateUrl: './field-input.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class FieldInputComponent implements OnChanges {
+export class FieldInputComponent implements OnInit {
   @ViewChild('htmlToCopy') htmlToCopy!: ElementRef;
   @Input() formName!: string;
 
   elementType = 'text';
-  elementTypes: string[] = ['text', 'checkbox', 'radio'];
   elementHTML!: string;
+  inputTypes!: string[];
+  inputDescription!: string;
 
-  constructor(private changeDetector: ChangeDetectorRef) { }
+  constructor(private changeDetector: ChangeDetectorRef, private inputTypesService: InputTypesService) { }
 
-  ngOnChanges(): void {
-    this.getElementHTML();
+  ngOnInit(): void {
+    this.getInputTypes()
   }
 
-  elementTypeChange(): void {
+  ngOnChanges(): void {
     this.getElementHTML();
   }
 
@@ -36,5 +38,9 @@ export class FieldInputComponent implements OnChanges {
     if (this.htmlToCopy.nativeElement) {
       this.elementHTML = this.htmlToCopy.nativeElement.outerHTML;
     }
+  }
+
+  private getInputTypes(): void {
+    this.inputTypes = this.inputTypesService.getInputTypes()
   }
 }
