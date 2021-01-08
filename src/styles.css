@@ -3,5 +3,5 @@
 @import "tailwindcss/utilities";
 
 code {
-  @apply px-2.5 py-1.5 rounded-md bg-gray-700 text-gray-200 text-xs;
+  @apply px-2.5 py-1.5 rounded-md bg-gray-700 text-gray-100 text-xs;
 }
