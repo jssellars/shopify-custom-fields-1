@@ -1,4 +1,6 @@
-export const FormFields: object[] = [
+import { FormField } from '../../app/interfaces/form-field'
+
+export const FormFields: FormField[] = [
   {
     name: "input",
     description: "These give the user different functionality",

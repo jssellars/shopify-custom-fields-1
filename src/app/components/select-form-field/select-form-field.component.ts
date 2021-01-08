@@ -1,6 +1,6 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { FormFieldsService } from 'src/app/services/form-fields.service';
+import { FormField } from 'src/app/interfaces/form-field'
 
 @Component({
   selector: 'app-select-form-field',
@@ -13,7 +13,7 @@ export class SelectFormFieldComponent implements OnInit {
   @Output() formFieldChange = new EventEmitter<string>();
   @Output() formNameChange = new EventEmitter<string>();
 
-  formFields!: object[];
+  formFields!: FormField[];
 
   constructor(private formFieldsService: FormFieldsService) {
   }
@@ -43,7 +43,7 @@ export class SelectFormFieldComponent implements OnInit {
     };
   }
 
-  private getFormFields(): object[] {
+  private getFormFields(): FormField[] {
     return this.formFieldsService.getFormFields()
   }
 }
