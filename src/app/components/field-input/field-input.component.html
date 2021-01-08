@@ -18,7 +18,8 @@
           (ngModelChange)="elementTypeChange()"
         />
         <label
-          class="inline-block px-3 py-2 text-sm font-medium text-indigo-700 rounded-md cursor-pointer bg-indigo-50"
+          class="inline-block px-5 py-3 text-sm font-medium cursor-pointer rounded-xl"
+          [ngClass]="inputLabelClass(_elementType)"
           [for]="_elementType"
         >
           {{ _elementType | titlecase }}

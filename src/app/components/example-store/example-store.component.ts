@@ -3,7 +3,6 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-example-store',
   templateUrl: './example-store.component.html',
-  styleUrls: ['./example-store.component.css']
 })
 export class ExampleStoreComponent implements OnInit {
   @Input() elementType!: string;

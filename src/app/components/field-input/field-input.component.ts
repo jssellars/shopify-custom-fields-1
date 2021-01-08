@@ -3,7 +3,6 @@ import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef,
 @Component({
   selector: 'app-field-input',
   templateUrl: './field-input.component.html',
-  styleUrls: ['./field-input.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class FieldInputComponent implements OnChanges {
@@ -22,6 +21,13 @@ export class FieldInputComponent implements OnChanges {
 
   elementTypeChange(): void {
     this.getElementHTML()
+  }
+
+  inputLabelClass(value: string = 'text'): object {
+    return {
+      'bg-indigo-100 text-indigo-700': this.elementType === value,
+      'bg-gray-100 text-gray-700': this.elementType !== value,
+    }
   }
 
   private getElementHTML(): void {

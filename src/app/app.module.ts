@@ -11,6 +11,7 @@ import { FieldTextareaComponent } from './components/field-textarea/field-textar
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { ExampleStoreComponent } from './components/example-store/example-store.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ExampleStoreComponent } from './components/example-store/example-store.
     TruncatePipe,
     PageHeaderComponent,
     ExampleStoreComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

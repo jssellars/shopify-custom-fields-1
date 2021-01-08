@@ -11,7 +11,7 @@
 
     <div class="relative mt-2">
       <input
-        class="block w-full pr-16 border-gray-300 rounded-md h-14 focus:ring-indigo-500 sm:text-sm"
+        class="block w-full h-16 pr-16 border-gray-200 rounded-2xl focus:ring-indigo-500 sm:text-sm"
         type="text"
         placeholder="Set the form field name"
         id="name"
@@ -19,13 +19,13 @@
         (input)="setFormName($any($event))"
       />
 
-      <span class="absolute transform -translate-y-1/2 right-2 top-1/2">
+      <span class="absolute transform -translate-y-1/2 right-4 top-1/2">
         <button
-          class="inline-flex items-center justify-center w-10 h-10 text-sm text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
+          class="inline-flex items-center justify-center w-10 h-10 text-sm text-white bg-indigo-600 rounded-full shadow-lg hover:bg-indigo-500"
           type="submit"
         >
           <svg
-            class="w-6 h-6"
+            class="w-5 h-5"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@
   <fieldset>
     <legend class="sr-only">Select form input</legend>
 
-    <div class="-space-y-px overflow-hidden bg-white">
+    <div class="-space-y-px overflow-hidden rounded-2xl">
       <div *ngFor="let _formField of formFields; first as first; last as last">
         <div
           class="relative flex p-4 border"

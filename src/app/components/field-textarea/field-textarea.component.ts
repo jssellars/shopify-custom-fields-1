@@ -3,7 +3,6 @@ import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef,
 @Component({
   selector: 'app-field-textarea',
   templateUrl: './field-textarea.component.html',
-  styleUrls: ['./field-textarea.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class FieldTextareaComponent implements OnChanges {

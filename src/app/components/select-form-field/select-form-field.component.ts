@@ -34,8 +34,8 @@ export class SelectFormFieldComponent implements OnInit {
     return {
       'bg-indigo-50 border-indigo-200 z-10': this.formField === value,
       'border-gray-200': this.formField !== value,
-      'rounded-t-md': first,
-      'rounded-b-md': last
+      'rounded-t-3xl': first,
+      'rounded-b-3xl': last
     };
   }
 }

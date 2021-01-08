@@ -3,7 +3,6 @@ import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef,
 @Component({
   selector: 'app-field-select',
   templateUrl: './field-select.component.html',
-  styleUrls: ['./field-select.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class FieldSelectComponent implements OnChanges {

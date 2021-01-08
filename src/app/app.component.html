@@ -1,36 +1,45 @@
-<main>
+<div>
   <app-page-header></app-page-header>
 
-  <div class="max-w-screen-xl px-4 pb-8 mx-auto sm:pb-16">
-    <div class="p-8 -mt-8 bg-white shadow-md sm:-mt-16 rounded-2xl">
-      <div class="space-y-8 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
-        <div>
-          <app-select-form-field
-            [(formField)]="formField"
-            [(formName)]="formName"
-          >
-          </app-select-form-field>
-        </div>
+  <main>
+    <div class="max-w-screen-xl px-4 pb-8 mx-auto">
+      <div
+        class="relative z-10 p-8 -mt-8 bg-white shadow-md sm:-mt-16 rounded-3xl lg:-mt-40"
+      >
+        <div class="space-y-8 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
+          <div>
+            <app-select-form-field
+              [(formField)]="formField"
+              [(formName)]="formName"
+            >
+            </app-select-form-field>
+          </div>
 
-        <div class="lg:col-span-2">
-          <!-- replace this with a component loader -->
+          <div class="lg:col-span-2">
+            <!-- replace this with a component loader -->
 
-          <app-field-input [formName]="formName" *ngIf="formField === 'input'">
-          </app-field-input>
+            <app-field-input
+              [formName]="formName"
+              *ngIf="formField === 'input'"
+            >
+            </app-field-input>
 
-          <app-field-textarea
-            [formName]="formName"
-            *ngIf="formField === 'textarea'"
-          >
-          </app-field-textarea>
+            <app-field-textarea
+              [formName]="formName"
+              *ngIf="formField === 'textarea'"
+            >
+            </app-field-textarea>
 
-          <app-field-select
-            [formName]="formName"
-            *ngIf="formField === 'select'"
-          >
-          </app-field-select>
+            <app-field-select
+              [formName]="formName"
+              *ngIf="formField === 'select'"
+            >
+            </app-field-select>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
+
+  <app-footer></app-footer>
+</div>
