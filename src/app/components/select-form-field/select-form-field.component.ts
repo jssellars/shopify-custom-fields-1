@@ -3,7 +3,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-select-form-field',
   templateUrl: './select-form-field.component.html',
-  styleUrls: ['./select-form-field.component.css']
 })
 export class SelectFormFieldComponent implements OnInit {
   formFields: string[] = ['input', 'textarea', 'select'];
@@ -34,8 +33,8 @@ export class SelectFormFieldComponent implements OnInit {
     return {
       'bg-indigo-50 border-indigo-200 z-10': this.formField === value,
       'border-gray-200': this.formField !== value,
-      'rounded-t-3xl': first,
-      'rounded-b-3xl': last
+      'rounded-t-2xl': first,
+      'rounded-b-2xl': last
     };
   }
 }
