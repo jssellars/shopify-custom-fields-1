@@ -10,7 +10,7 @@
 
     <select
       [(ngModel)]="rowSize"
-      class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
+      class="block w-full h-16 mt-2 border-gray-200 rounded-2xl focus:ring-blue-500 sm:text-sm"
       id="rows"
       aria-describedby="rows-description"
     >
@@ -22,12 +22,14 @@
 
   <div>
     <div class="hidden">
-      <textarea
-        name="properties[{{ formName }}]"
-        [rows]="rowSize"
-        #textareaField
-      >
-      </textarea>
+      <div #htmlToCopy>
+        <label [for]="formName">{{ formName | titlecase }}</label>
+        <textarea
+          [id]="formName"
+          name="properties[{{ formName }}]"
+          [rows]="rowSize"
+        ></textarea>
+      </div>
     </div>
 
     <app-example-store [elementType]="elementType" [rowSize]="rowSize">

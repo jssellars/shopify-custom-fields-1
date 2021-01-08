@@ -63,7 +63,7 @@
             <input
               type="text"
               id="customise"
-              class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
+              class="block w-full mt-2 border-gray-300 rounded-md focus:ring-blue-500 sm:text-sm"
               placeholder="Enter your name"
             />
           </div>
@@ -71,7 +71,7 @@
           <div *ngIf="elementType === 'select'">
             <select
               id="customise"
-              class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
+              class="block w-full mt-2 border-gray-300 rounded-md focus:ring-blue-500 sm:text-sm"
             >
               <option *ngFor="let selectOption of selectOptions">
                 {{ selectOption }}
@@ -83,7 +83,7 @@
             <textarea
               id="customise"
               [rows]="rowSize"
-              class="block w-full mt-2 border-gray-300 rounded-md focus:ring-indigo-500 sm:text-sm"
+              class="block w-full mt-2 border-gray-300 rounded-md focus:ring-blue-500 sm:text-sm"
             ></textarea>
           </div>
 
@@ -93,7 +93,7 @@
                 <input
                   id="example_one"
                   [type]="elementType"
-                  class="w-5 h-5 text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                  class="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500"
                   [ngClass]="{ rounded: elementType === 'checkbox' }"
                 />
                 <label
@@ -108,7 +108,7 @@
                 <input
                   id="example_two"
                   [type]="elementType"
-                  class="w-5 h-5 text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                  class="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500"
                   [ngClass]="{ rounded: elementType === 'checkbox' }"
                 />
                 <label

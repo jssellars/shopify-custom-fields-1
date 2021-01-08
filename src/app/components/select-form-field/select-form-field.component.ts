@@ -31,7 +31,7 @@ export class SelectFormFieldComponent implements OnInit {
 
   inputWrapperClass(value: string = 'input', first: boolean, last: boolean): object {
     return {
-      'bg-indigo-50 border-indigo-200 z-10': this.formField === value,
+      'bg-blue-50 border-blue-200 z-10': this.formField === value,
       'border-gray-200': this.formField !== value,
       'rounded-t-2xl': first,
       'rounded-b-2xl': last

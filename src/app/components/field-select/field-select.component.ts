@@ -6,7 +6,7 @@ import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef,
   encapsulation: ViewEncapsulation.None
 })
 export class FieldSelectComponent implements OnChanges {
-  @ViewChild('selectField') selectField!: ElementRef;
+  @ViewChild('htmlToCopy') htmlToCopy!: ElementRef;
   @Input() formName!: string;
 
   selectOptions: string[] = ['USA', 'Canada'];
@@ -39,8 +39,8 @@ export class FieldSelectComponent implements OnChanges {
 
     const commentRegex = /(<!--.*?-->)|(<!--[\S\s]+?-->)|(<!--[\S\s]*?$)/g;
 
-    if (this.selectField.nativeElement) {
-      this.elementHTML = this.selectField.nativeElement.outerHTML.replace(commentRegex, '');
+    if (this.htmlToCopy.nativeElement) {
+      this.elementHTML = this.htmlToCopy.nativeElement.outerHTML.replace(commentRegex, '');
     }
   }
 }

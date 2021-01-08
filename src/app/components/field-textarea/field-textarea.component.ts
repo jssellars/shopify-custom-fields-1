@@ -6,7 +6,7 @@ import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef,
   encapsulation: ViewEncapsulation.None
 })
 export class FieldTextareaComponent implements OnChanges {
-  @ViewChild('textareaField') textareaField!: ElementRef;
+  @ViewChild('htmlToCopy') htmlToCopy!: ElementRef;
   @Input() formName!: string;
 
   elementHTML!: string;
@@ -23,8 +23,8 @@ export class FieldTextareaComponent implements OnChanges {
   private getElementHTML(): void {
     this.changeDetector.detectChanges();
 
-    if (this.textareaField.nativeElement) {
-      this.elementHTML = this.textareaField.nativeElement.outerHTML;
+    if (this.htmlToCopy.nativeElement) {
+      this.elementHTML = this.htmlToCopy.nativeElement.outerHTML;
     }
   }
 }

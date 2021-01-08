@@ -6,7 +6,7 @@ import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef,
   encapsulation: ViewEncapsulation.None
 })
 export class FieldInputComponent implements OnChanges {
-  @ViewChild('inputField') inputField!: ElementRef;
+  @ViewChild('htmlToCopy') htmlToCopy!: ElementRef;
   @Input() formName!: string;
 
   elementType = 'text';
@@ -25,7 +25,7 @@ export class FieldInputComponent implements OnChanges {
 
   inputLabelClass(value: string = 'text'): object {
     return {
-      'bg-indigo-100 text-indigo-700': this.elementType === value,
+      'bg-blue-100 text-blue-700': this.elementType === value,
       'bg-gray-100 text-gray-700': this.elementType !== value,
     }
   }
@@ -33,8 +33,8 @@ export class FieldInputComponent implements OnChanges {
   private getElementHTML(): void {
     this.changeDetector.detectChanges();
 
-    if (this.inputField.nativeElement) {
-      this.elementHTML = this.inputField.nativeElement.outerHTML;
+    if (this.htmlToCopy.nativeElement) {
+      this.elementHTML = this.htmlToCopy.nativeElement.outerHTML;
     }
   }
 }
