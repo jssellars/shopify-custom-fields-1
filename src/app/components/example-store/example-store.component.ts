@@ -9,7 +9,7 @@ export class ExampleStoreComponent implements OnInit {
   @Input() selectOptions!: string[];
   @Input() rowSize!: number;
 
-  exampleSizes: string[] = ['XS', 'S', 'M', 'L', 'XL']
+  exampleSizes: string[] = ['XS', 'S', 'M', 'L', 'XL'];
 
   constructor() { }
 

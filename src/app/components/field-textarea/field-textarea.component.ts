@@ -12,7 +12,7 @@ export class FieldTextareaComponent implements OnChanges {
   elementHTML!: string;
   rowSizes: number[] = [2, 3, 4, 5, 6];
   rowSize = 4;
-  elementType = 'textarea'
+  elementType = 'textarea';
 
   constructor(private changeDetector: ChangeDetectorRef) { }
 

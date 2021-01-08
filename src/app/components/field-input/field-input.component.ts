@@ -20,14 +20,14 @@ export class FieldInputComponent implements OnChanges {
   }
 
   elementTypeChange(): void {
-    this.getElementHTML()
+    this.getElementHTML();
   }
 
   inputLabelClass(value: string = 'text'): object {
     return {
       'bg-blue-100 text-blue-700': this.elementType === value,
       'bg-gray-100 text-gray-700': this.elementType !== value,
-    }
+    };
   }
 
   private getElementHTML(): void {

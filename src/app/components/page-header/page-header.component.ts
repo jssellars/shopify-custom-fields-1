@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-header.component.css']
 })
 export class PageHeaderComponent implements OnInit {
-  squareCount: number[] = new Array(19);
+  squareCount: number[] = new Array(30);
 
   constructor() { }
 
