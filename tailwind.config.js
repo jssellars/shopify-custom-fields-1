@@ -1,5 +1,3 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
   purge: ["./src/**/*.{html,ts}"],
   darkMode: false,
@@ -8,12 +6,7 @@ module.exports = {
       center: true,
       padding: "1rem",
     },
-    extend: {
-      position: {
-        absolute: "absolute",
-        ...defaultTheme.position,
-      },
-    },
+    extend: {},
   },
   variants: {
     extend: {},

@@ -1,3 +1,3 @@
 export const InputTypes: string[] = [
-  "text", "number", "checkbox", "radio"
+  'text', 'number', 'checkbox', 'radio'
 ];

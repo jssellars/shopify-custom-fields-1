@@ -8,10 +8,10 @@ import { ButtonCopyToClipboardComponent } from './components/button-copy-to-clip
 import { FieldInputComponent } from './components/field-input/field-input.component';
 import { FieldSelectComponent } from './components/field-select/field-select.component';
 import { FieldTextareaComponent } from './components/field-textarea/field-textarea.component';
-import { TruncatePipe } from './pipes/truncate.pipe';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { ExampleStoreComponent } from './components/example-store/example-store.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -21,16 +21,15 @@ import { FooterComponent } from './components/footer/footer.component';
     FieldInputComponent,
     FieldSelectComponent,
     FieldTextareaComponent,
-    TruncatePipe,
     PageHeaderComponent,
     ExampleStoreComponent,
     FooterComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 

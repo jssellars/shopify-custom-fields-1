@@ -1,25 +1,26 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { FormFieldsService } from 'src/app/services/form-fields.service';
-import { FormField } from 'src/app/interfaces/form-field'
+import { FormField } from 'src/app/interfaces/form-field';
+import { iif } from 'rxjs';
 
 @Component({
   selector: 'app-select-form-field',
   templateUrl: './select-form-field.component.html',
 })
 export class SelectFormFieldComponent implements OnInit {
-  @Input()  formField!: string;
-  @Input()  formName!: string;
+  @Input() formField!: string;
+  @Input() formName!: string;
 
   @Output() formFieldChange = new EventEmitter<string>();
   @Output() formNameChange = new EventEmitter<string>();
 
   formFields!: FormField[];
+  model: any = {};
 
-  constructor(private formFieldsService: FormFieldsService) {
-  }
+  constructor(private formFieldsService: FormFieldsService) { }
 
   ngOnInit(): void {
-    this.formFields = this.getFormFields()
+    this.formFields = this.getFormFields();
   }
 
   setFormField(event: InputEvent): void {
@@ -28,10 +29,8 @@ export class SelectFormFieldComponent implements OnInit {
     this.formFieldChange.emit(element.value);
   }
 
-  setFormName(event: InputEvent): void {
-    const element = event.currentTarget as HTMLInputElement;
-
-    this.formNameChange.emit(element.value);
+  setFormName(value: string): void {
+    this.formNameChange.emit(value);
   }
 
   inputWrapperClass(value: string = 'input', first: boolean, last: boolean): object {
@@ -44,6 +43,6 @@ export class SelectFormFieldComponent implements OnInit {
   }
 
   private getFormFields(): FormField[] {
-    return this.formFieldsService.getFormFields()
+    return this.formFieldsService.getFormFields();
   }
 }

@@ -25,17 +25,16 @@
 }
 
 .background {
-  position: ;
   width: theme("width.full");
   height: theme("height.full");
   background: theme("backgroundColor.blue.900");
   top: theme("inset.0");
   left: theme("inset.0");
-  position: theme("position.absolute");
+  position: absolute;
 }
 
 .background li {
-  position: theme("position.absolute");
+  position: absolute;
   background-color: theme("backgroundColor.blue.800");
   width: 20px;
   height: 20px;

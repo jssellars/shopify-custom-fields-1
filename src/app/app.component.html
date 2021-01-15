@@ -2,12 +2,15 @@
   <app-page-header></app-page-header>
 
   <main>
-    <div class="max-w-screen-xl px-4 pb-8 mx-auto">
+    <div class="container pb-8">
       <div
         class="relative z-10 p-8 -mt-8 bg-white shadow-lg sm:-mt-16 rounded-3xl lg:-mt-40"
       >
-        <div class="space-y-8 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
-          <div>
+        <div
+          class="space-y-8 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0"
+          role="grid"
+        >
+          <div role="gridcell">
             <app-select-form-field
               [(formField)]="formField"
               [(formName)]="formName"
@@ -15,9 +18,7 @@
             </app-select-form-field>
           </div>
 
-          <div class="lg:col-span-2">
-            <!-- replace this with a component loader -->
-
+          <div class="lg:col-span-2" role="gridcell">
             <app-field-input
               [formName]="formName"
               *ngIf="formField === 'input'"

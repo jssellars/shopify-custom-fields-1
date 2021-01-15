@@ -1,6 +1,6 @@
 <div class="space-y-8">
   <div>
-    <form (submit)="addOption(inputAddOption)">
+    <form (ngSubmit)="f.form.valid && addOption(inputAddOption)" #f="ngForm">
       <label class="block font-medium text-gray-700" for="options">
         Options
       </label>
@@ -17,6 +17,13 @@
           id="options"
           aria-describedby="options-description"
           #inputAddOption
+          required
+          name="option"
+          [(ngModel)]="model.option"
+          #option="ngModel"
+          [ngClass]="{
+            'border-red-500': f.submitted && option.invalid
+          }"
         />
 
         <span class="absolute transform -translate-y-1/2 right-4 top-1/2">
@@ -41,12 +48,33 @@
       </div>
     </form>
 
+    <div *ngIf="f.submitted && option.invalid" class="mt-2" role="alert">
+      <div *ngIf="option.errors?.required" class="flex items-center">
+        <svg
+          class="w-5 h-5 text-red-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+
+        <span class="ml-1.5 text-sm text-red-600">Option is required</span>
+      </div>
+    </div>
+
     <div class="flex flex-wrap mt-2 -m-1">
       <span
         class="inline-flex rounded-full items-center py-0.5 pl-2.5 pr-1 text-sm font-medium bg-blue-100 text-blue-700 m-1"
         *ngFor="let selectOption of selectOptions; index as i"
       >
-        {{ selectOption | truncate: 15 }}
+        {{ selectOption | truncate: 10 }}
         <button
           class="inline-flex items-center justify-center flex-shrink-0 w-4 h-4 ml-1 text-blue-400 rounded-full hover:bg-blue-200 hover:text-blue-500 focus:outline-none focus:bg-blue-500 focus:text-white"
           (click)="removeOption(i)"
@@ -81,10 +109,7 @@
       </div>
     </div>
 
-    <app-example-store
-      [elementType]="elementType"
-      [selectOptions]="selectOptions"
-    >
+    <app-example-store [elementType]="'select'" [selectOptions]="selectOptions">
     </app-example-store>
   </div>
 

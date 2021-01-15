@@ -11,7 +11,7 @@ export class FieldSelectComponent implements OnChanges {
 
   selectOptions: string[] = ['USA', 'Canada'];
   elementHTML!: string;
-  elementType = 'select';
+  model: any = { };
 
   constructor(private changeDetector: ChangeDetectorRef) { }
 

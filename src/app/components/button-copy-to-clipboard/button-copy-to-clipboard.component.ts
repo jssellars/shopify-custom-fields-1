@@ -9,8 +9,7 @@ export class ButtonCopyToClipboardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   copyHTMLToClipboard(clipboardHtml: HTMLTextAreaElement): void {
     clipboardHtml.select();

@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input, OnInit } from '@angular/core';
 import { InputTypesService } from 'src/app/services/input-types.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class FieldInputComponent implements OnInit {
   constructor(private changeDetector: ChangeDetectorRef, private inputTypesService: InputTypesService) { }
 
   ngOnInit(): void {
-    this.getInputTypes()
+    this.getInputTypes();
   }
 
   ngOnChanges(): void {
@@ -41,6 +41,6 @@ export class FieldInputComponent implements OnInit {
   }
 
   private getInputTypes(): void {
-    this.inputTypes = this.inputTypesService.getInputTypes()
+    this.inputTypes = this.inputTypesService.getInputTypes();
   }
 }
