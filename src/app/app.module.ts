@@ -12,6 +12,7 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
 import { ExampleStoreComponent } from './components/example-store/example-store.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { FormErrorComponent } from './components/form-error/form-error.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     PageHeaderComponent,
     ExampleStoreComponent,
     FooterComponent,
-    TruncatePipe
+    TruncatePipe,
+    FormErrorComponent
   ],
   imports: [
     BrowserModule,
