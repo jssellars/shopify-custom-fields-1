@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-header.component.css'],
 })
 export class PageHeaderComponent implements OnInit {
-  squareCount: number[] = new Array(30);
+  squareIcons: number[] = Array(30);
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 }

@@ -19,18 +19,18 @@ export class ButtonCopyToClipboardComponent implements OnInit {
 
     if (htmlString) {
       htmlString = htmlString.replace(commentRegex, '');
-      
-      const htmlArray = htmlString.split(/>\s*</)
 
-      for(let htmlElement of htmlArray) {
+      const htmlArray = htmlString.split(/>\s*</);
+
+      for (const htmlElement of htmlArray) {
         if (htmlElement.match(/^\/\w/)) {
-          htmlIndent = htmlIndent.substring(htmlTab.length)
+          htmlIndent = htmlIndent.substring(htmlTab.length);
         }
-        
-        htmlResult += `${htmlIndent}<${htmlElement}>\r\n`
 
-        if (htmlElement.match(/^<?\w[^>]*[^\/]$/) && !htmlElement.startsWith("input")) { 
-          htmlIndent += htmlTab;              
+        htmlResult += `${htmlIndent}<${htmlElement}>\r\n`;
+
+        if (htmlElement.match(/^<?\w[^>]*[^\/]$/) && !htmlElement.startsWith('input')) {
+          htmlIndent += htmlTab;
         }
       }
     }
