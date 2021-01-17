@@ -1,4 +1,4 @@
-import { FormField } from '../../app/interfaces/form-field';
+import { FormField } from '../../app/model/form-field';
 
 export const FormFields: FormField[] = [
   {

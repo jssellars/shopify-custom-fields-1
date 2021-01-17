@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { FormFieldsService } from 'src/app/services/form-fields.service';
-import { FormField } from 'src/app/interfaces/form-field';
-import { iif } from 'rxjs';
+import { FormField } from 'src/app/model/form-field';
 
 @Component({
   selector: 'app-select-form-field',

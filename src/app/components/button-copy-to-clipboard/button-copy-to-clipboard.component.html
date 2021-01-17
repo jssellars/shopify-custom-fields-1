@@ -15,10 +15,9 @@
   <div class="flex mt-8 lg:mt-0 lg:flex-shrink-0">
     <button
       class="px-5 py-3 text-sm font-medium text-white bg-blue-600 rounded-md shadow-lg hover:bg-blue-500"
-      (click)="copyHTMLToClipboard(clipboardHtml)"
+      (click)="copyHTMLToClipboard()"
     >
       Copy to Clipboard
     </button>
-    <textarea class="sr-only" #clipboardHtml>{{ inputHTML }}</textarea>
   </div>
 </div>
