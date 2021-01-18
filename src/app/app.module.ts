@@ -11,8 +11,8 @@ import { FieldTextareaComponent } from './components/field-textarea/field-textar
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { ExampleStoreComponent } from './components/example-store/example-store.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { TruncatePipe } from './pipes/truncate.pipe';
 import { FormErrorComponent } from './components/form-error/form-error.component';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { FormErrorComponent } from './components/form-error/form-error.component
     PageHeaderComponent,
     ExampleStoreComponent,
     FooterComponent,
+    FormErrorComponent,
     TruncatePipe,
-    FormErrorComponent
   ],
   imports: [
     BrowserModule,

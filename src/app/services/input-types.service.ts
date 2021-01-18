@@ -5,7 +5,6 @@ import { InputTypes } from '../../assets/data/input-types.js';
   providedIn: 'root'
 })
 export class InputTypesService {
-
   constructor() { }
 
   getInputTypes(): string[] {

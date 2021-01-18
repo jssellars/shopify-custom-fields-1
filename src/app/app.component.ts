@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'Shopify Line Item Generator';
-
   formField = 'input';
   formName  = 'Example';
 

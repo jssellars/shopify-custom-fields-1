@@ -12,17 +12,14 @@ export class ButtonCopyToClipboardComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public copyHTMLToClipboard(): void {
-    const fakeInput = document.createElement('textarea');
+  public copyHTMLToClipboard(copyField: HTMLTextAreaElement): void {
     const htmlString = this.inputHTML.toString();
     const formattedHTML = new PrettyHTML(htmlString).format();
 
     if (formattedHTML) {
-      fakeInput.innerHTML = formattedHTML;
-      document.body.appendChild(fakeInput);
-      fakeInput.select();
+      copyField.innerHTML = formattedHTML;
+      copyField.select();
       document.execCommand('copy');
-      document.body.removeChild(fakeInput);
     }
   }
 }
