@@ -19,9 +19,6 @@ export class FieldInputComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInputTypes();
-  }
-
-  ngOnChanges(): void {
     this.getElementHTML();
   }
 
@@ -32,15 +29,15 @@ export class FieldInputComponent implements OnInit {
     };
   }
 
-  private getElementHTML(): void {
+  private getInputTypes(): void {
+    this.inputTypes = this.inputTypesService.getInputTypes();
+  }
+
+    getElementHTML(): void {
     this.changeDetector.detectChanges();
 
     if (this.htmlToCopy.nativeElement) {
       this.elementHTML = this.htmlToCopy.nativeElement.outerHTML;
     }
-  }
-
-  private getInputTypes(): void {
-    this.inputTypes = this.inputTypesService.getInputTypes();
   }
 }

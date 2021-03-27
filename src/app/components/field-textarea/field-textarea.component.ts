@@ -1,11 +1,11 @@
-import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input, OnChanges } from '@angular/core';
+import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-field-textarea',
   templateUrl: './field-textarea.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class FieldTextareaComponent implements OnChanges {
+export class FieldTextareaComponent implements OnInit {
   @ViewChild('htmlToCopy') htmlToCopy!: ElementRef;
   @Input() formName!: string;
 
@@ -13,13 +13,13 @@ export class FieldTextareaComponent implements OnChanges {
   rowSizes: number[] = [2, 3, 4, 5, 6];
   rowSize = 4;
 
+  ngOnInit(): void {
+    this.getElementHTML();
+   }
+
   constructor(private changeDetector: ChangeDetectorRef) { }
 
-  ngOnChanges(): void {
-    this.getElementHTML();
-  }
-
-  private getElementHTML(): void {
+  getElementHTML(): void {
     this.changeDetector.detectChanges();
 
     if (this.htmlToCopy.nativeElement) {

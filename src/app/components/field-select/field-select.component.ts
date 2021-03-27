@@ -1,11 +1,11 @@
-import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input, OnChanges } from '@angular/core';
+import { Component, ViewChild, ElementRef, ViewEncapsulation, ChangeDetectorRef, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-field-select',
   templateUrl: './field-select.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class FieldSelectComponent implements OnChanges {
+export class FieldSelectComponent implements OnInit {
   @ViewChild('htmlToCopy') htmlToCopy!: ElementRef;
   @Input() formName!: string;
 
@@ -15,7 +15,7 @@ export class FieldSelectComponent implements OnChanges {
 
   constructor(private changeDetector: ChangeDetectorRef) { }
 
-  ngOnChanges(): void {
+  ngOnInit(): void {
     this.getElementHTML();
   }
 
@@ -34,7 +34,7 @@ export class FieldSelectComponent implements OnChanges {
     this.getElementHTML();
   }
 
-  private getElementHTML(): void {
+  getElementHTML(): void {
     this.changeDetector.detectChanges();
 
     const commentRegex = /(<!--.*?-->)|(<!--[\S\s]+?-->)|(<!--[\S\s]*?$)/g;

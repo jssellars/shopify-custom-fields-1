@@ -7,10 +7,11 @@
     </p>
 
     <select
-      [(ngModel)]="rowSize"
       class="block w-full h-16 px-4 mt-2 border-gray-200 rounded-2xl focus:ring-blue-500 sm:text-sm"
       id="rows"
       aria-describedby="rows-description"
+      [(ngModel)]="rowSize"
+      (ngModelChange)="getElementHTML()"
     >
       <option *ngFor="let rowSize of rowSizes">
         {{ rowSize }}
